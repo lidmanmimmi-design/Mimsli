@@ -1,0 +1,47 @@
+name: Convert portfolio videos for web
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/convert-videos.yml'
+      - '*.mov'
+      - '**/*.mov'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Convert MOV videos to browser-compatible MP4
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for file in *.mov; do
+            output="${file%.*}.mp4"
+            echo "Converting: $file -> $output"
+            ffmpeg -hide_banner -loglevel error -y -i "$file" -c:v libx264 -pix_fmt yuv420p -preset fast -crf 23 -c:a aac -b:a 128k -movflags +faststart "$output"
+          done
+      - name: Commit converted videos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.mp4'
+          if git diff --cached --quiet; then
+            echo "No converted videos to commit."
+          else
+            git commit -m "Convert portfolio videos to web-compatible MP4"
+            git push
+          fi
