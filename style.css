@@ -1,196 +1,1240 @@
-/* 1 · Box-modellen: bredden gäller hela lådan */
+/* ==========================================================================
+   MIMMI LIDMAN – PERSONAL BRAND & PORTFOLIO
+   Minimalistisk design baserad på Squarespace-referensen.
+   Färgpalett: Varmvit/elfenbensvit, sand/beige, mörkgrå och svart.
+   Inga starka accentfärger, ingen rosa, vinröd eller khaki.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FÄRGER & VARIABLER
+   -------------------------------------------------------------------------- */
+:root {
+  /* Huvudbakgrunder och neutraler */
+  --vit-varm: #F8FAF7;          /* Lätt tonad salvia-vit huvudbakgrund */
+  --vit-ren: #FFFFFF;           /* Ren vit för kortdetaljer */
+  --sand-ljus: #EAF1E8;         /* Ljus salviaton för sektionsskiftningar */
+  --sand-mellan: #D5E3D2;       /* Något djupare salvia för linjer och ramar */
+  --sand-mork: #A8BFA5;         /* Kontur- och kantfärg */
+
+  /* Organiska gröna toner och lyster från inspirationsbilderna */
+  --gron-dimma: #F2F7F1;        /* Mjuk disig dimgrön (Bild 2) */
+  --gron-salvia-ljus: #E6EFE4;  /* Fräsch salvia */
+  --gron-salvia: #CFE0CC;       /* Mjuk celadongrön */
+  --gron-salvia-mork: #4E6E50;  /* Eukalyptusgrön för balanserad kontrast */
+  --gron-kakel-linje: rgba(115, 155, 122, 0.08); /* Diskret mosaiktextur (Bild 1) */
+
+  /* Babyrosa färgpalett – bevarad för identitet och harmoni */
+  --baby-rosa: #DE6A89;         /* Klassisk babyrosa för accenter och knappar */
+  --baby-rosa-rubrik: #D45D7D;  /* Elegant babyrosa för header-namn och logotyp */
+  --baby-rosa-brod: #8A2D46;    /* Varm, mättad rosenton med stark läsbarhet för brödtext */
+  --baby-rosa-muted: #CF6884;   /* Mjuk babyrosa för datum, taggar och sekundärtext */
+  --baby-rosa-hero: #FFCCD7;    /* Ljus, strålande pastel babyrosa i hero */
+  --baby-rosa-linje: rgba(222, 106, 137, 0.22); /* Subtila rosa linjer */
+
+  /* Mörkröd accent – används sparsamt på utvalda rubriker och detaljer */
+  --morkrod: #6B1724;           /* Djup bordeaux med hög kontrast och lyxig elegans */
+  --morkrod-hover: #8B2032;     /* Något ljusare för hovring */
+  --morkrod-dim: rgba(107, 23, 36, 0.08);
+
+  /* Textvariabler länkade till färgpaletten */
+  --svart-ren: var(--baby-rosa-rubrik);
+  --svart-kol: var(--baby-rosa-rubrik);
+  --gra-mork: var(--baby-rosa-brod);
+  --gra-muted: var(--baby-rosa-muted);
+  --gra-ljus: rgba(130, 165, 135, 0.22);
+
+  /* Typografi */
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Layout & Effekter */
+  --max-bredd: 1140px;
+  --radie-sm: 4px;
+  --radie-md: 8px;
+  --radie-lg: 14px;
+  --overgang: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --skugga-organisk: 0 16px 36px -10px rgba(45, 70, 50, 0.07);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & GRUNDLÄGGANDE STIL
+   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 2 · Varumärket som variabler */
-:root {
-  --text: #1f2430;
-  --yta: #ffffff;
-  --yta-2: #f3f1ec;
-  --kant: #e2ded5;
-  --primar: #1d4e89;
-  --accent: #ffd166;
-  --knapptext: #1f2430;
-  --luft: 1rem;
-  --radie: 12px;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--vit-varm);
 }
 
-/* 3 · Grundstil */
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--text);
-  background: var(--yta);
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--gra-mork);
+  background-color: var(--vit-varm);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3 {
-  line-height: 1.2;
-  color: var(--primar);
-}
-
-h1 {
-  font-size: 2rem;
-  margin: 0;
-}
-
-h2 {
-  font-size: 1.75rem;
-  margin-top: 0;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
-
-p {
-  max-width: 65ch;
-}
-
-a {
-  color: var(--primar);
-}
-
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* 4 · Sidhuvud och meny */
-.sidhuvud {
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--overgang);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.behållare {
+  width: 100%;
+  max-width: var(--max-bredd);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAFISKA ELEMENT & RUBRIKER
+   -------------------------------------------------------------------------- */
+.sektions-rubrik {
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--morkrod); /* Sparsam mörkröd accent på sektionsrubriker */
+  margin: 0 0 1.5rem;
+  line-height: 1.25;
+}
+
+.sektions-huvud {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+}
+
+/* Knappar – diskreta med tunna linjer och mjuk lyster */
+.knapp-diskret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--baby-rosa);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--baby-rosa);
+  border-radius: var(--radie-sm);
+  transition: all var(--overgang);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(45, 70, 50, 0.04);
+}
+
+.knapp-diskret:hover {
+  background: var(--baby-rosa);
+  color: #FFFFFF;
+  border-color: var(--baby-rosa);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(222, 106, 137, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   4. HEADER
+   Centrerat namn och roll, diskret logo till vänster och hamburgermeny till höger
+   -------------------------------------------------------------------------- */
+.stilren-header {
+  background-color: var(--vit-varm);
+  border-bottom: 1px solid var(--gra-ljus);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  max-width: var(--max-bredd);
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  color: var(--svart-kol);
+  font-size: 1.25rem;
+  transition: opacity var(--overgang);
+}
+
+.header-logo:hover {
+  opacity: 0.7;
+}
+
+.logo-symbol {
+  font-size: 1.35rem;
+}
+
+/* Centrerat textblock i header */
+.header-titel-block {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+.header-namn {
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--svart-kol);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header-roll {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gra-muted);
+  margin: 0.2rem 0 0;
+  line-height: 1.2;
+}
+
+/* Hamburgermeny knapp */
+.nav-toggle {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--luft);
-  padding: calc(var(--luft) * 1.5);
-  background: var(--yta-2);
-}
-
-.roll {
-  margin: 0;
-}
-
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--luft);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  font-weight: 600;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* 5 · Innehållsytan */
-main {
-  max-width: 70rem;
-  margin: 0 auto;
-  padding: 0 calc(var(--luft) * 1.5);
-}
-
-section {
-  padding: calc(var(--luft) * 3) 0;
-}
-
-.knapp {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  background: var(--accent);
-  color: var(--knapptext);
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: var(--radie);
-}
-
-/* 6 · Kort i ett rutnät */
-.rutnat {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: calc(var(--luft) * 1.5);
-  list-style: none;
-  padding: 0;
-}
-
-.kort {
-  background: var(--yta-2);
-  padding: calc(var(--luft) * 1.5);
-  border: 1px solid var(--kant);
-  border-radius: var(--radie);
-}
-
-.kort h3 {
-  margin-top: 0;
-}
-
-.kort img {
-  border-radius: calc(var(--radie) / 2);
-  margin-bottom: var(--luft);
-}
-
-/* 7 · Knappar och fokus */
-button {
-  font: inherit;
-  padding: 0.6rem 1.1rem;
-  color: var(--primar);
-  background: var(--yta);
-  border: 2px solid var(--primar);
-  border-radius: var(--radie);
+  justify-content: space-between;
+  width: 24px;
+  height: 12px;
+  background: transparent;
   cursor: pointer;
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--primar);
-  outline-offset: 3px;
+.nav-toggle .streck {
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--svart-kol);
+  transition: transform var(--overgang), opacity var(--overgang);
 }
 
-footer {
-  padding: calc(var(--luft) * 2);
+/* Navigeringslänkar som fälls ut */
+.huvud-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--vit-varm);
+  border-bottom: 1px solid var(--gra-ljus);
+  padding: 2rem;
+  display: none;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.huvud-nav.oppen {
+  display: block;
+}
+
+.huvud-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.huvud-nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--svart-kol);
+}
+
+.huvud-nav a:hover {
+  color: var(--gra-muted);
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO-SEKTION
+   Stor elegant hero med headbild.jpg (grön marmor) och babyrosa typografi
+   -------------------------------------------------------------------------- */
+.sektion-hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  min-height: clamp(620px, 82vh, 880px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--gra-ljus);
+}
+
+.hero-bakgrund {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-marmor-bild {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 25, 17, 0.4) 0%, rgba(14, 25, 17, 0.2) 50%, rgba(14, 25, 17, 0.5) 100%);
+}
+
+.hero-innehall {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  background: var(--yta-2);
+  padding: 5rem 1.5rem;
+  max-width: 860px;
 }
 
-footer p {
+.hero-rubrik .hero-namn {
+  display: inline-block;
+  font-size: clamp(2.8rem, 6.2vw, 5rem);
+}
+
+.hero-rubrik .hero-underrubrik {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.hero-rubrik {
+  font-size: clamp(2.3rem, 5.2vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.22;
+  text-transform: uppercase;
+  color: var(--baby-rosa-hero);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+  margin: 0 0 2.5rem;
+}
+
+.hero-innehall .knapp-diskret {
+  color: var(--baby-rosa-hero);
+  border-color: var(--baby-rosa-hero);
+  background: rgba(14, 25, 17, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-innehall .knapp-diskret:hover {
+  background: var(--baby-rosa-hero);
+  color: #17281B;
+  border-color: var(--baby-rosa-hero);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   6. SEKTION: OM MIG (ABOUT)
+   Tvådelad sektion: bild till vänster, presentation till höger
+   -------------------------------------------------------------------------- */
+.sektion {
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+.sektion-om {
+  background-color: var(--vit-varm);
+  border-bottom: 1px solid var(--gra-ljus);
+}
+
+.om-split {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.om-bild-behållare {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--sand-ljus);
+  overflow: hidden;
+}
+
+.om-portratt {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(104%);
+}
+
+.om-text-behållare {
+  display: flex;
+  flex-direction: column;
+}
+
+.om-text p {
+  font-size: 1.02rem;
+  color: var(--gra-mork);
+  line-height: 1.8;
+  margin: 0 0 1.35rem;
+  font-weight: 350;
+}
+
+.om-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. SEKTION: UTBILDNING (IHM BUSINESS SCHOOL & KURSER)
+   Mjuk sand/beigetonad bakgrund med IHM logotyp och strukturerade kurser
+   -------------------------------------------------------------------------- */
+.sektion-utbildning {
+  background-color: var(--sand-ljus);
+  border-bottom: 1px solid var(--sand-mellan);
+}
+
+.utbildning-huvud {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.ihm-logo-box {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ihm-logo-bild {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.utbildning-program {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gra-muted);
+  margin: -0.65rem 0 0;
+}
+
+.kurser-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.kurs-kort {
+  background-color: var(--vit-varm);
+  border: 1px solid var(--sand-mellan);
+  padding: 2.25rem 1.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 130px;
+  border-radius: 2px;
+  transition: transform var(--overgang), border-color var(--overgang), box-shadow var(--overgang);
+  position: relative;
+}
+
+.kurs-kort:focus-visible {
+  outline: 2px solid var(--baby-rosa);
+  outline-offset: 4px;
+}
+
+.kurs-kort:hover {
+  transform: translateY(-3px);
+  border-color: var(--svart-kol);
+  box-shadow: 0 12px 30px rgba(28, 26, 24, 0.06);
+}
+
+.kurs-nummer {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--gra-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.95rem;
+  display: block;
+}
+
+.kurs-namn {
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--svart-kol);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. SEKTION: PORTFOLIO (HORISONTELL SCROLLBAR RAD)
+   Kort i samma stil som referensen, scrollbar horisontellt, indikerar mer innehåll
+   -------------------------------------------------------------------------- */
+.sektion-portfolio {
+  background-color: var(--vit-varm);
+  border-bottom: 1px solid var(--gra-ljus);
+  overflow: hidden;
+}
+
+.portfolio-topp {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.portfolio-topp .sektions-rubrik {
+  margin: 0;
+}
+
+.scroll-indikator {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.scroll-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gra-muted);
+  font-weight: 600;
+}
+
+.scroll-pilar {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pil-knapp {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--sand-mellan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--svart-kol);
+  background-color: var(--vit-varm);
+  transition: all var(--overgang);
+}
+
+.pil-knapp:hover {
+  background-color: var(--svart-kol);
+  color: var(--vit-varm);
+  border-color: var(--svart-kol);
+}
+
+/* Horisontell scroll-wrapper */
+.portfolio-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 2rem 2.5rem;
+  /* Dölj standard scrollbar men behåll scrollbarhet */
+  scrollbar-width: thin;
+  scrollbar-color: var(--sand-mellan) transparent;
+}
+
+.portfolio-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.portfolio-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.portfolio-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--sand-mellan);
+}
+
+.portfolio-track {
+  display: flex;
+  gap: 2.25rem;
+  width: max-content;
+}
+
+/* Portfolio-kort (exakt proportioner likt referensen) */
+.portfolio-kort {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--overgang);
+}
+
+.portfolio-kort:hover {
+  transform: translateY(-4px);
+}
+
+.kort-media-behållare {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--sand-ljus);
+  border: 1px solid var(--gra-ljus);
+}
+
+/* Platshållare med sofistikerad neutral styling */
+.media-platshallare {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  transition: background-color var(--overgang);
+}
+
+.platshallare-neutral {
+  background: #EAE6DF;
+}
+
+.platshallare-sand {
+  background: #DFD7CB;
+}
+
+.platshallare-mork {
+  background: #2B2825;
+  color: var(--baby-rosa-hero);
+}
+
+.platshallare-mork .platshallare-tagg,
+.platshallare-mork .platshallare-titel {
+  color: var(--baby-rosa-hero);
+}
+
+.platshallare-tagg {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gra-muted);
+  margin-bottom: 0.5rem;
+}
+
+.platshallare-titel {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--svart-kol);
+}
+
+.video-play-ikon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.65;
+}
+
+.kort-bild,
+.kort-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kort-info {
+  margin-top: 1rem;
+}
+
+.kort-titel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--svart-kol);
+  margin: 0 0 0.25rem;
+}
+
+.kort-kategori {
+  font-size: 0.75rem;
+  color: var(--gra-muted);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. SEKTION: KONTAKT
+   -------------------------------------------------------------------------- */
+.sektion-kontakt {
+  background-color: var(--sand-ljus);
+  border-bottom: 1px solid var(--sand-mellan);
+}
+
+.kontakt-ingress {
+  font-size: 1rem;
+  color: var(--gra-mork);
+  margin: 0;
+  font-weight: 350;
+}
+
+.kontakt-innehall {
+  max-width: 760px;
   margin: 0 auto;
 }
 
-/* 8 · Större skärmar */
-@media (min-width: 48rem) {
-  .sidhuvud {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: calc(var(--luft) * 1.5) calc(var(--luft) * 3);
+.kontakt-rader {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--sand-mellan);
+}
+
+.kontakt-rad {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--sand-mellan);
+}
+
+.kontakt-etikett {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gra-muted);
+}
+
+.kontakt-varde {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--svart-kol);
+}
+
+.kontakt-varde:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   10. SIDFOT
+   -------------------------------------------------------------------------- */
+.stilren-sidfot {
+  background-color: var(--vit-varm);
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--gra-ljus);
+}
+
+.sidfot-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sidfot-namn {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gra-muted);
+}
+
+.sidfot-topp-lank {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--svart-kol);
+}
+
+.sidfot-topp-lank:hover {
+  color: var(--gra-muted);
+}
+
+/* --------------------------------------------------------------------------
+   11. PROJEKT-MODAL
+   -------------------------------------------------------------------------- */
+.stilren-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(28, 26, 24, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--overgang);
+}
+
+.stilren-modal.aktiv {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-kort {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  background: var(--vit-varm);
+  border: 1px solid var(--sand-mellan);
+  padding: 3.5rem 3rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+}
+
+.modal-kryss {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.8rem;
+  color: var(--svart-kol);
+  line-height: 1;
+}
+
+.modal-kat {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gra-muted);
+  margin-bottom: 0.65rem;
+}
+
+.modal-titel {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--svart-kol);
+  margin: 0 0 1.25rem;
+  line-height: 1.2;
+}
+
+.modal-beskrivning {
+  font-size: 0.98rem;
+  color: var(--gra-mork);
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+  font-weight: 350;
+}
+
+/* --------------------------------------------------------------------------
+   12. RESPONSIVITET
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .om-split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  h1 {
-    font-size: 2.5rem;
+  .om-bild-behållare {
+    max-width: 360px;
+    margin: 0 auto;
   }
 
-  h2 {
-    font-size: 2rem;
+  .kurser-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .portfolio-kort {
+    flex: 0 0 280px;
   }
 }
 
-/* 9 · Mörkt läge: nya färger när body har klassen morkt */
-body.morkt {
-  --text: #e8e6e1;
-  --yta: #14171f;
-  --yta-2: #1f2430;
-  --kant: #343a48;
-  --primar: #8ab4f8;
+@media (max-width: 640px) {
+  .header-inner {
+    padding: 1rem 1.5rem;
+  }
+
+  .header-namn {
+    font-size: 1.08rem;
+  }
+
+  .header-roll {
+    font-size: 0.58rem;
+  }
+
+  .sektion {
+    padding: 4.5rem 0;
+  }
+
+  .kurser-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .kurs-kort {
+    padding: 1.65rem 1.4rem;
+    min-height: auto;
+  }
+
+  .portfolio-topp {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .modal-kort {
+    padding: 2.5rem 1.75rem;
+  }
+
+  .kontakt-rad {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+/* Bildbaserad design från de tre inspirationsbilderna. Header och hero lämnas orörda. */
+.sektion-om,
+.sektion-utbildning,
+.sektion-portfolio,
+.sektion-kontakt {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.sektion-om > .behållare,
+.sektion-utbildning > .behållare,
+.sektion-kontakt > .behållare,
+.portfolio-topp,
+.portfolio-scroll-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.sektion-om {
+  background:
+    linear-gradient(90deg, rgba(248,247,238,.65), rgba(248,247,238,.82)),
+    url("img/inspo-gradient.jpg") center / cover no-repeat;
+}
+
+.sektion-om::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -65px;
+  bottom: -72px;
+  width: min(52vw, 640px);
+  height: 310px;
+  pointer-events: none;
+  background: none;
+  opacity: 0;
+}
+
+.om-bild-behållare {
+  padding: 0;
+  border: 10px solid #dce8d5;
+  border-radius: 0;
+  background: none;
+  transform: none;
+  box-shadow: 12px 12px 0 rgba(222,106,137,.28);
+}
+
+.om-portratt,
+.om-text-behållare,
+.om-text-behållare::before,
+.kontakt-innehall,
+.kurs-kort,
+.kort-media-behållare,
+.ihm-logo-bild {
+  border-radius: 0;
+}
+
+.om-text-behållare {
+  background: rgba(255,253,248,.76);
+  backdrop-filter: none;
+}
+
+.om-text-behållare::before {
+  border-radius: 0;
+}
+
+.sektion-utbildning {
+  background: #263b2a;
+}
+
+.sektion-utbildning::before {
+  display: none;
+}
+
+.sektion-utbildning::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 142px;
+  pointer-events: none;
+  background: none;
+  opacity: 0;
+}
+
+.kurs-kort {
+  overflow: hidden;
+  border-width: 1px 1px 1px 4px;
+  border-color: rgba(119,151,111,.4);
+  border-left-color: #8baa7d;
+  box-shadow: 0 10px 22px rgba(62,91,57,.13);
+}
+
+.kurs-kort:nth-child(3n + 2) {
+  border-left-color: var(--baby-rosa);
+}
+
+.kurs-kort:nth-child(3n) {
+  border-left-color: #b6a85f;
+}
+
+.kurs-kort::before {
+  display: none;
+}
+
+.sektion-portfolio {
+  background: #263b2a;
+}
+
+.sektion-portfolio::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 142px;
+  pointer-events: none;
+  background: none;
+  opacity: 0;
+}
+
+.portfolio-topp {
+  padding-top: 2.2rem;
+}
+
+.kort-media-behållare {
+  border: 7px solid rgba(255,253,246,.9);
+  outline: 1px solid rgba(113,144,101,.42);
+  box-shadow: 10px 10px 0 rgba(142,176,128,.34);
+  transition: transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s ease;
+}
+
+.portfolio-kort:nth-child(even) .kort-media-behållare {
+  box-shadow: -10px 10px 0 rgba(221,128,151,.28);
+}
+
+.portfolio-kort:hover .kort-media-behållare {
+  transform: translateY(-5px);
+  box-shadow: 14px 14px 0 rgba(221,128,151,.32);
+}
+
+.sektion-kontakt {
+  background:
+    linear-gradient(180deg, #263b2a 0%, rgba(38,59,42,.76) 16%, rgba(38,59,42,0) 43%),
+    linear-gradient(rgba(244,237,228,.48), rgba(244,237,228,.48)),
+    url("img/bodybils.jpg") center 55% / cover no-repeat;
+}
+
+.sektion-kontakt::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 126px;
+  pointer-events: none;
+  transform: none;
+  background: none;
+  opacity: 0;
+}
+
+.kontakt-innehall {
+  background: rgba(255,253,247,.72);
+  box-sizing: border-box;
+  padding: 1rem 1.75rem;
+  box-shadow: 10px 10px 0 rgba(142,176,128,.26);
+}
+
+.stilren-sidfot {
+  background:
+    linear-gradient(105deg, rgba(245,246,237,.7), rgba(237,242,229,.76)),
+    url("img/inspo-gradient.jpg") center / cover no-repeat;
+}
+
+.sektion-hero {
+  border-bottom: 0;
+}
+
+.sektion-om,
+.sektion-utbildning,
+.sektion-portfolio,
+.sektion-kontakt {
+  border-bottom: 0;
+}
+
+.stilren-sidfot {
+  border-top: 0;
+}
+
+.sektion-utbildning .sektions-rubrik,
+.sektion-utbildning .utbildning-program,
+.sektion-portfolio .kort-titel {
+  color: var(--baby-rosa);
+}
+
+.sektion-kontakt .sektions-rubrik,
+.sektion-kontakt .kontakt-ingress {
+  color: var(--baby-rosa-hero);
+}
+
+@media (max-width: 640px) {
+  .sektion-om::before {
+    width: 82vw;
+    height: 210px;
+    right: -55px;
+    bottom: -50px;
+  }
+
+  .sektion-utbildning::before {
+    width: 74px;
+    opacity: .46;
+  }
+
+  .sektion-utbildning::after,
+  .sektion-portfolio::before,
+  .sektion-kontakt::before {
+    background-size: 100% auto;
+  }
+
+  .portfolio-topp {
+    padding-top: 1.8rem;
+  }
+}
+
+/* Om mig: texten ligger direkt mot samma mörkgröna hero-inspirerade bakgrund. */
+.sektion-om {
+  background: #263b2a;
+}
+
+.sektion-om .om-text-behållare {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.sektion-om .om-text-behållare::before {
+  display: none;
+}
+
+.sektion-om .sektions-rubrik,
+.sektion-om .om-text p {
+  color: var(--baby-rosa);
+}
+
+.sektion-om .om-bild-behållare {
+  border: 0;
+  box-shadow: 12px 12px 0 rgba(75, 112, 70, .72);
+}
+
+/* Endast About rör sig upp i bild och fyller skärmens arbetsyta. */
+.sektion-om {
+  box-sizing: border-box;
+  min-height: calc(100vh - 5rem);
+  min-height: calc(100svh - 5rem);
+  display: flex;
+  align-items: center;
+}
+
+.about-scroll-rorelse .sektion-om {
+  transition: transform 1.15s cubic-bezier(.22, 1, .36, 1);
+}
+
+.about-scroll-rorelse .sektion-om:not(.synlig) {
+  transform: translateY(34vh);
+}
+
+.about-scroll-rorelse .sektion-om.synlig {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-scroll-rorelse .sektion-om,
+  .about-scroll-rorelse .sektion-om:not(.synlig) {
+    transform: none;
+    transition: none;
+  }
+}
+/* Tydlig inramning och skugga för portfolio-videor */
+.kort-media-behållare.kort-video-ram {
+  border: 7px solid rgba(255, 253, 246, .96);
+  outline: 1px solid rgba(113, 144, 101, .55);
+  box-shadow: 10px 10px 0 rgba(142, 176, 128, .48);
+}
+
+/* Helskärmsläget visar hela originalvideon utan beskärning */
+.kort-video:fullscreen,
+.kort-video:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: #17251a;
+}
+.sektion-portfolio .sektions-rubrik,
+.sektion-portfolio .kort-titel,
+.sektion-portfolio .kort-kategori,
+.sektion-portfolio .scroll-text {
+  color: var(--baby-rosa);
 }

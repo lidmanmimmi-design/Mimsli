@@ -2,101 +2,384 @@
 <html lang="sv">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZYTSX6WQX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-XZYTSX6WQX');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-N28F9NXQ');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mimmi Lidman – Digital Marketing Specialist i Göteborg</title>
+  <title>Mimmi Lidman – Digital Marketing Specialist</title>
   <meta name="description"
-    content="Mimmi Lidman hjälper företag att synas och växa digitalt med sök, sociala medier och e-post. Se projekt och ta kontakt.">
+    content="Mimmi Lidman – Digital Marketing Specialist i Göteborg. Strategisk marknadsföring, sökordsoptimering (SEO), innehåll och analys.">
+
+  <!-- Google Fonts: Plus Jakarta Sans – tunt, stilrent och elegant sans-serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
 
 <body>
-  <header class="sidhuvud">
-    <div>
-      <h1>Mimmi Lidman</h1>
-      <p class="roll">Digital Marketing Specialist i Göteborg</p>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N28F9NXQ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- =================================================================
+       1. HEADER
+       Centrerat namn och roll, diskret hamburgermeny
+       ================================================================= -->
+  <header class="stilren-header" id="top">
+    <div class="header-inner">
+      <!-- Vänster: Diskret minimalistisk symbol / monogram -->
+      <a href="#top" class="header-logo" aria-label="Mimmi Lidman">
+        <span class="logo-symbol" aria-hidden="true">❖</span>
+      </a>
+
+      <!-- Mitten: Namn och roll direkt under (enligt instruktion) -->
+      <div class="header-titel-block">
+        <h1 class="header-namn">MIMMI LIDMAN</h1>
+        <p class="header-roll">DIGITAL MARKETING SPECIALIST</p>
+      </div>
+
+      <!-- Höger: Hamburgermeny-knapp -->
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="huvudNav"
+        aria-label="Öppna navigering">
+        <span class="streck"></span>
+        <span class="streck"></span>
+      </button>
+
+      <!-- Navigeringsmeny (fälls ut på mobil / visas diskret) -->
+      <nav class="huvud-nav" id="huvudNav" aria-label="Huvudmeny">
+        <ul>
+          <li><a href="#top">HEM</a></li>
+          <li><a href="#om">OM MIG</a></li>
+          <li><a href="#utbildning">UTBILDNING</a></li>
+          <li><a href="#portfolio">PORTFOLIO</a></li>
+          <li><a href="#kontakt">KONTAKT</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav aria-label="Huvudmeny">
-      <ul>
-        <li><a href="#om">Om mig</a></li>
-        <li><a href="#tjanster">Vad jag gör</a></li>
-        <li><a href="#projekt">Projekt</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </nav>
-    <button id="tema" type="button" hidden>Byt till mörkt läge</button>
   </header>
 
   <main>
-    <section class="intro">
-      <h2>Digital Marketing Specialist</h2>
-      <p>Sök, sociala medier och e-post som hänger ihop – så att rätt kunder hittar dig och väljer dig.</p>
-      <a class="knapp" href="#kontakt">0707256407</a>
-    </section>
+    <!-- =================================================================
+         2. HERO
+         Stor elegant hero med neutral marmor/stenbakgrund och diskret knapp
+         ================================================================= -->
+    <section class="sektion-hero" id="hero">
+      <div class="hero-bakgrund">
+        <img src="headbild.jpg" alt="Mimmi Lidman – grön marmorering" class="hero-marmor-bild">
+        <div class="hero-overlay"></div>
+      </div>
 
-    <section id="om">
-      <h2>Om mig</h2>
-      <img src="bildhemsida.jpg" alt="Mimmi Lidman ler mot kameran" width="700" height="500">
-      <p>Jag utbildar mig till Digital Marketing Specialist på IHM Business School och har ett särskilt intresse för
-        strategisk marknadsföring.</p>
-      <img src="ihmlogga.jpg" alt="ihm logga" width="150" height="150">
-      <p>Innan utbildningen arbetade jag i butik och på ett café.</p>
-    </section>
-
-    <section id="tjanster">
-      <h2>Vad jag gör</h2>
-      <ul class="rutnat">
-        <li class="kort">
-          <h3>Synas i sök</h3>
-          <p>Sökordsanalys, texter och en Google-profil som lockar till klick.</p>
-        </li>
-        <li class="kort">
-          <h3>Sociala medier</h3>
-          <p>Innehållsplan och inlägg som passar din målgrupp och din tid.</p>
-        </li>
-        <li class="kort">
-          <h3>E-post som säljer</h3>
-          <p>Nyhetsbrev och enkla automatiska flöden som följer upp nya kunder.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section id="projekt">
-      <h2>Projekt</h2>
-      <div class="rutnat">
-        <article class="kort">
-          <img src="img/projekt-1.jpg" alt="Skärmbild av ett kafés Google-profil med betyg och öppettider" width="600"
-            height="400">
-          <h3>Lokal synlighet för ett kafé</h3>
-          <p>Kursuppgift: plan för Google-profil och sökord för ett fiktivt kafé i Göteborg.</p>
-        </article>
-        <article class="kort">
-          <img src="img/projekt-2.jpg" alt="Innehållskalender för en månad med inlägg markerade per kanal" width="600"
-            height="400">
-          <h3>Innehållsplan för en månad</h3>
-          <p>Kursuppgift: pelare, kanaler och tolv inlägg för en hållbar kaffeprenumeration.</p>
-        </article>
-        <article class="kort">
-          <img src="img/projekt-3.jpg" alt="Den här webbplatsen i mobilvy" width="600" height="400">
-          <h3>Den här sajten</h3>
-          <p>Handkodad med HTML, CSS och JavaScript, med AI som kodstöd.</p>
-        </article>
+      <div class="hero-innehall">
+        <h2 class="hero-rubrik">
+          <span class="hero-namn">Mimmi Lidman</span><br>
+          <span class="hero-underrubrik">Digital Marketing Specialist</span>
+        </h2>
+        <a href="#portfolio" class="knapp-diskret">SEE MY WORK</a>
       </div>
     </section>
 
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <p>Vill du veta mer? Mejla mig eller hör av dig på LinkedIn.</p>
-      <p><a href="mailto:mimmi.lidman@hotmail.se">mimmi.lidman@hotmail.se</a></p>
-      <p><a href="https://www.linkedin.com/in/mimmi-lidman-645935350/" target="_blank" rel="noopener">Mimmi Lidman på
-          LinkedIn</a></p>
+    <!-- =================================================================
+         3. OM MIG (ABOUT)
+         Tvådelad sektion: bild på ena sidan, presentation på den andra
+         ================================================================= -->
+    <section class="sektion sektion-om" id="om">
+      <div class="behållare">
+        <div class="om-split">
+          <!-- Vänster: Porträttbild (bildhemsida.jpg) -->
+          <div class="om-bild-behållare">
+            <img src="bildhemsida.jpg" alt="Mimmi Lidman" class="om-portratt" width="500" height="600">
+          </div>
+
+          <!-- Höger: Presentation under rubriken ABOUT -->
+          <div class="om-text-behållare">
+            <h2 class="sektions-rubrik">ABOUT</h2>
+
+            <div class="om-text">
+              <p>
+                Jag heter Mimmi och studerar till Digital Marketing Specialist på IHM Business School. Jag är särskilt
+                intresserad av influencer marketing, sociala medier och content och av hur kreativt innehåll kan förenas
+                med genomtänkt strategi för att skapa kampanjer som engagerar och når fram.
+              </p>
+              <p>
+                Från min erfarenhet inom content creation och PR-marknadsföring har jag arbetat med att skapa innehåll
+                för sociala medier och bygga kontakt med influencers och kreatörer. Jag är nyfiken, driven och
+                organiserad, med ett öga för vad som fångar människors intresse. Jag trivs både med att ta egna
+                initiativ och att samarbeta med andra, och ser fram emot att fortsätta utvecklas och bidra med
+                kreativitet och engagemang i nya marknadsföringsprojekt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         4. UTBILDNING
+         Ersätter referensens SERVICES med samma balanserade 3-kolumners stil
+         Innehåller IHM Business School logotyp och utbildningsbeskrivning
+         ================================================================= -->
+    <section class="sektion sektion-utbildning" id="utbildning">
+      <div class="behållare">
+        <div class="sektions-huvud utbildning-huvud">
+          <div class="ihm-logo-box">
+            <img src="ihmlogga.jpg" alt="IHM Business School logotyp" class="ihm-logo-bild" width="120" height="84">
+          </div>
+          <h2 class="sektions-rubrik">IHM BUSINESS SCHOOL</h2>
+          <p class="utbildning-program">Digital Marketing Specialist</p>
+        </div>
+
+        <div class="kurser-grid">
+          <!-- Kurs 01 -->
+          <div class="kurs-kort" data-projekt="kursDigitalStrategi">
+            <span class="kurs-nummer">01</span>
+            <h3 class="kurs-namn">Digital marknadsföring &amp; strategi</h3>
+          </div>
+
+          <!-- Kurs 02 -->
+          <div class="kurs-kort" data-projekt="kursSeoSem">
+            <span class="kurs-nummer">02</span>
+            <h3 class="kurs-namn">SEO &amp; SEM</h3>
+          </div>
+
+          <!-- Kurs 03 -->
+          <div class="kurs-kort" data-projekt="kursSocialMedia">
+            <span class="kurs-nummer">03</span>
+            <h3 class="kurs-namn">Social Media Marketing</h3>
+          </div>
+
+          <!-- Kurs 04 -->
+          <div class="kurs-kort" data-projekt="kursContentMarketing">
+            <span class="kurs-nummer">04</span>
+            <h3 class="kurs-namn">Content Marketing</h3>
+          </div>
+
+          <!-- Kurs 05 -->
+          <div class="kurs-kort" data-projekt="kursAnalytics">
+            <span class="kurs-nummer">05</span>
+            <h3 class="kurs-namn">Google Analytics &amp; dataanalys</h3>
+          </div>
+
+          <!-- Kurs 06 -->
+          <div class="kurs-kort" data-projekt="kursEmailCrm">
+            <span class="kurs-nummer">06</span>
+            <h3 class="kurs-namn">E-postmarknadsföring &amp; CRM</h3>
+          </div>
+
+          <!-- Kurs 07 -->
+          <div class="kurs-kort" data-projekt="kursPaidAdvertising">
+            <span class="kurs-nummer">07</span>
+            <h3 class="kurs-namn">Paid Advertising</h3>
+          </div>
+
+          <!-- Kurs 08 -->
+          <div class="kurs-kort" data-projekt="kursAiVerktyg">
+            <span class="kurs-nummer">08</span>
+            <h3 class="kurs-namn">AI &amp; digitala verktyg</h3>
+          </div>
+
+          <!-- Kurs 09 -->
+          <div class="kurs-kort" data-projekt="kursProjektledning">
+            <span class="kurs-nummer">09</span>
+            <h3 class="kurs-namn">Projektledning &amp; marknadsplanering</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         5. PORTFOLIO
+         Horisontell scroll-rad med kort i samma stil som referensen
+         Scrollbar via drag, trackpad eller mobil-svep
+         Stöd för både bilder och videor med tydliga platshållare
+         ================================================================= -->
+    <section class="sektion sektion-portfolio" id="portfolio">
+      <div class="behållare portfolio-topp">
+        <h2 class="sektions-rubrik">PORTFOLIO</h2>
+        <div class="scroll-indikator">
+          <span class="scroll-text">Dra eller skrolla åt sidan &rarr;</span>
+          <div class="scroll-pilar" aria-hidden="true">
+            <button type="button" class="pil-knapp pil-vanster" id="portfolioPilVanster"
+              aria-label="Skrolla vänster">&lsaquo;</button>
+            <button type="button" class="pil-knapp pil-hoger" id="portfolioPilHoger"
+              aria-label="Skrolla höger">&rsaquo;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HORISONTELL SCROLLBAR RAD -->
+      <div class="portfolio-scroll-wrapper" id="portfolioScrollContainer" tabindex="0"
+        aria-label="Portfolio projektlista, skrolla horisontellt">
+        <div class="portfolio-track">
+
+          
+
+          
+
+          <!-- KORT 3: Den här sajten (Befintligt projekt) -->
+          <article class="portfolio-kort" data-projekt="sajt">
+            <div class="kort-media-behållare">
+              <img src="img/portfolio-den-har-sajten.png" alt="Skärmbild av Mimmi Lidmans webbplats" class="kort-bild" loading="lazy">
+            </div>
+            <div class="kort-info">
+              <h3 class="kort-titel">DEN HÄR SAJTEN</h3>
+              <p class="kort-kategori">Case study &bull; HTML, CSS &amp; JavaScript</p>
+            </div>
+          </article>
+
+          
+
+          
+
+          <!-- KORT 6–7: ByWonderlash-videor -->
+                    <!-- ByWonderlash-videor -->
+          <article class="portfolio-kort" data-projekt="wonderlashVideo1">
+            <div class="kort-media-behållare kort-video-ram">
+              <video class="kort-video" controls playsinline preload="metadata" aria-label="Video skapad för ByWonderlash">
+                <source src="img/bywonderlash-video-2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="kort-info">
+              <h3 class="kort-titel">CONTENT CREATOR PÅ BYWONDERLASH</h3>
+              <p class="kort-kategori">Content creation &bull; Sociala medier</p>
+            </div>
+          </article>
+
+          
+
+          <!-- Cafévideor -->
+          <article class="portfolio-kort" data-projekt="cafeVideo1">
+            <div class="kort-media-behållare kort-video-ram">
+              <video class="kort-video" controls playsinline preload="metadata" aria-label="Marknadsföringsvideo för café">
+                <source src="img/cafe-video-1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="kort-info">
+              <h3 class="kort-titel">MARKNADSFÖRINGSVIDEO FÖR CAFÉ</h3>
+              <p class="kort-kategori">Marknadsföring &bull; Sociala medier</p>
+            </div>
+          </article>
+
+          <article class="portfolio-kort" data-projekt="cafeVideo2">
+            <div class="kort-media-behållare kort-video-ram">
+              <video class="kort-video" controls playsinline preload="metadata" aria-label="Marknadsföringsvideo för café">
+                <source src="img/cafe-video-2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="kort-info">
+              <h3 class="kort-titel">MARKNADSFÖRINGSVIDEO FÖR CAFÉ</h3>
+              <p class="kort-kategori">Marknadsföring &bull; Sociala medier</p>
+            </div>
+          </article>
+
+          <!-- Eget innehåll -->
+          <article class="portfolio-kort" data-projekt="ownMediaVideo4">
+            <div class="kort-media-behållare kort-video-ram">
+              <video class="kort-video" controls playsinline preload="metadata" aria-label="Video från egna TikTok-kanaler">
+                <source src="img/own-media-video-4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="kort-info">
+              <h3 class="kort-titel">EGNA KANALER &amp; TIKTOK</h3>
+              <p class="kort-kategori">Egna medier &bull; TikTok</p>
+            </div>
+          </article>
+
+          <article class="portfolio-kort" data-projekt="wonderlashVideo2">
+            <div class="kort-media-behållare kort-video-ram">
+              <video class="kort-video" controls playsinline preload="metadata" aria-label="Video skapad för ByWonderlash">
+                <source src="img/bywonderlash-video-1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="kort-info">
+              <h3 class="kort-titel">CONTENT CREATOR PÅ BYWONDERLASH</h3>
+              <p class="kort-kategori">Content creation &bull; Sociala medier</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- =================================================================
+         6. KONTAKT
+         Diskret kontaktsektion med direkta länkar och enkelt formulär
+         ================================================================= -->
+    <section class="sektion sektion-kontakt" id="kontakt">
+      <div class="behållare">
+        <div class="sektions-huvud">
+          <h2 class="sektions-rubrik">KONTAKT</h2>
+          <p class="kontakt-ingress">
+            Vill du diskutera ett projekt, en LIA-praktikplats eller ta kontakt?
+          </p>
+        </div>
+
+        <div class="kontakt-innehall">
+          <div class="kontakt-rader">
+            <div class="kontakt-rad">
+              <span class="kontakt-etikett">TELEFON</span>
+              <a href="tel:0707256407" class="kontakt-varde">070-725 64 07</a>
+            </div>
+            <div class="kontakt-rad">
+              <span class="kontakt-etikett">E-POST</span>
+              <a href="mailto:mimmi.lidman@hotmail.se" class="kontakt-varde">mimmi.lidman@hotmail.se</a>
+            </div>
+            <div class="kontakt-rad">
+              <span class="kontakt-etikett">LINKEDIN</span>
+              <a href="https://www.linkedin.com/in/mimmi-lidman-645935350/" target="_blank" rel="noopener"
+                class="kontakt-varde">Mimmi Lidman på LinkedIn &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Mimmi Lidman · Byggd för hand med HTML, CSS och JavaScript</p>
+  <!-- =================================================================
+       7. SIDFOT
+       ================================================================= -->
+  <footer class="stilren-sidfot">
+    <div class="behållare sidfot-inner">
+      <p class="sidfot-namn">&copy; 2026 MIMMI LIDMAN &bull; DIGITAL MARKETING SPECIALIST</p>
+      <a href="#top" class="sidfot-topp-lank">TILL TOPPEN &uarr;</a>
+    </div>
   </footer>
+
+  <!-- =================================================================
+       PROJEKTMODAL (Visar detaljer vid klick på ett portfoliokort)
+       ================================================================= -->
+  <div id="projektModal" class="stilren-modal" hidden aria-hidden="true" role="dialog">
+    <div class="modal-kort">
+      <button id="modalStang" class="modal-kryss" aria-label="Stäng detaljvy">&times;</button>
+      <div class="modal-detaljer">
+        <span id="modalKategori" class="modal-kat"></span>
+        <h3 id="modalTitel" class="modal-titel"></h3>
+        <p id="modalBeskrivning" class="modal-beskrivning"></p>
+        <a href="#kontakt" id="modalCta" class="knapp-diskret">KONTAKTA MIG</a>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
